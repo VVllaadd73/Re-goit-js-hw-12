@@ -1,34 +1,101 @@
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
+
+.gallery {
+  display: grid; /* Вмикаємо CSS Grid — сучасну систему розмітки */
+  grid-template-columns: repeat(3, 1fr); /* Створюємо 4 колонки однакової ширини (1fr = 1 частина доступного простору) */
+  gap: 10px; /* Відстань між елементами сітки (і по горизонталі, і по вертикалі) */
+  list-style: none; /* Прибираємо стандартні маркери списку (крапки у <ul><li>) */
+  padding: 10px; /* Внутрішні відступи контейнера з усіх боків */
+  margin: 0 auto; /* Автоматичні відступи зліва і справа — центрує галерею по горизонталі */
+  max-width: 1128px; /* Максимальна ширина галереї (не розтягується більше 1128px) */
+}
+
+.cart {
+  border: 1px solid rgba(128, 128, 128, 1); /* Рамка товщиною 1px сірого кольору */
+}
+
+.photo_info {
+  padding: 5px; /* Внутрішні відступи для повітря між контентом і краями */
+  display: flex; /* Flexbox — дозволяє легко вирівнювати елементи */
+  justify-content: space-around; /* Рівномірний розподіл елементів по ширині */
+  max-height: 48px; /* Обмеження максимальної висоти блоку */
+}
+
+.photo_image {
+  width: 100%; /* Зображення займає всю ширину батьківського елемента */
+  max-height: 152px; /* Максимальна висота картинки */
+  object-fit: cover; /* Масштабує картинку без спотворень, обрізаючи зайве, щоб заповнити контейнер */
+}
+
 p {
-  margin: 0;
+  display: flex; /* Робимо <p> flex-контейнером */
+  flex-direction: column; /* Розташовуємо дочірні елементи вертикально */
+  align-items: center; /* Вирівнюємо елементи по горизонталі по центру */
+  justify-content: center; /* Вирівнюємо елементи по вертикалі по центру */
 }
 
-p:last-child {
-  margin-bottom: 0;
+.form {
+   display: flex;
+   width: 250px;
+   margin: 0 auto;
+   gap: 10px;
 }
 
-ul {
-  margin: 0;
-  padding: 0;
-  list-style: none;
+.bott, .input {
+   background-color: blue;
+   color: gold;
 }
 
-a {
-  color: currentColor;
-  text-decoration: none;
+.bott:hover,
+.input:hover {
+   background-color: brown;
 }
 
-button {
-  cursor: pointer;
+.next {
+   display: block;
+   background-color: blue;
+   color: gold;
+   width: 120px;
+  margin: 0 auto;
 }
 
-img {
-  display: block;
-  max-width: 100%;
-  height: auto;
+.loader, .loader:before, .loader:after {
+  border-radius: 50%;
+  width: 2.5em;
+  height: 2.5em;
+  animation-fill-mode: both;
+  animation: bblFadInOut 1.8s infinite ease-in-out;
 }
+.loader {
+  color: #FFF;
+  font-size: 7px;
+  position: relative;
+  text-indent: -9999em;
+  transform: translateZ(0);
+  animation-delay: -0.16s;
+  display: flex;
+  margin: 0 auto;
+  margin-bottom: 50px;
+}
+.loader:before,
+.loader:after {
+  content: '';
+  position: absolute;
+  top: 0;
+}
+.loader:before {
+  left: -3.5em;
+  animation-delay: -0.32s;
+}
+.loader:after {
+  left: 3.5em;
+}
+
+@keyframes bblFadInOut {
+  0%, 80%, 100% { box-shadow: 0 2.5em 0 -1.3em }
+  40% { box-shadow: 0 2.5em 0 0 }
+}
+
+.off {
+   display: none;
+}
+    
