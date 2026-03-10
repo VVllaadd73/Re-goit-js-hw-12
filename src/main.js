@@ -30,11 +30,13 @@ function onSubmit(event) {
    loaderOn();
 
    clearGallery();
+   let nPage = 1;
 
    getImagesPageQuery(query, nPage, cHits);
 };
 
 function onNext(event) {
+
    event.preventDefault();
 
    nextOff();
@@ -43,4 +45,17 @@ function onNext(event) {
    nPage++;
 
    getImagesPageQuery(query, nPage, cHits);
-};
+
+   setTimeout(() => {
+
+      const elem = document.querySelector('.gallery li');
+      const height = elem.getBoundingClientRect().height;
+
+      window.scrollBy({
+         top: height * 2,
+         behavior: "smooth"
+      });
+
+   }, 300);
+
+}
